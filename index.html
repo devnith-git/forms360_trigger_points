@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forms360: How It Works in Practice</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:"bootstrap-icons";font-display:block;src:url(data:font/woff2;base64,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) format("woff2")}
+.bi::before,[class^="bi-"]::before,[class*=" bi-"]::before{display:inline-block;font-family:bootstrap-icons!important;font-style:normal;font-weight:normal!important;font-variant:normal;text-transform:none;line-height:1;vertical-align:-.125em;-webkit-font-smoothing:antialiased}
+.bi-person-fill::before{content:"\f4da"}.bi-person-gear::before{content:"\f8a7"}.bi-people::before{content:"\f4d0"}.bi-file-earmark-bar-graph::before{content:"\f35a"}.bi-calendar2-week::before{content:"\f209"}.bi-clock::before{content:"\f293"}.bi-calendar-check::before{content:"\f1e2"}.bi-window::before{content:"\f620"}.bi-search::before{content:"\f52a"}.bi-person-check::before{content:"\f4d6"}.bi-easel::before{content:"\f310"}.bi-bullseye::before{content:"\f1de"}.bi-award::before{content:"\f154"}.bi-house::before{content:"\f425"}.bi-arrow-left::before{content:"\f12f"}.bi-box-arrow-right::before{content:"\f1c3"}.bi-caret-down-fill::before{content:"\f229"}.bi-x-lg::before{content:"\f659"}.bi-calendar3::before{content:"\f214"}.bi-x-circle-fill::before{content:"\f622"}.bi-person-lines-fill::before{content:"\f4db"}.bi-gear-fill::before{content:"\f3e2"}.bi-person-badge::before{content:"\f4d3"}.bi-briefcase::before{content:"\f1cc"}.bi-geo-alt-fill::before{content:"\f3e7"}.bi-layers::before{content:"\f45b"}.bi-star-fill::before{content:"\f586"}.bi-person-workspace::before{content:"\f67a"}.bi-person::before{content:"\f4e1"}.bi-door-open::before{content:"\f308"}.bi-person-walking::before{content:"\f8fa"}.bi-file-earmark-text::before{content:"\f38b"}.bi-three-dots-vertical::before{content:"\f5d3"}.bi-plus-lg::before{content:"\f64d"}.bi-eye::before{content:"\f341"}.bi-chevron-down::before{content:"\f282"}.bi-funnel::before{content:"\f3e1"}.bi-filetype-csv::before{content:"\f743"}.bi-filetype-xlsx::before{content:"\f793"}.bi-arrow-down-up::before{content:"\f127"}.bi-sort-up::before{content:"\f57b"}.bi-reply-fill::before{content:"\f51f"}.bi-circle-half::before{content:"\f288"}.bi-file-earmark-person::before{content:"\f379"}.bi-activity::before{content:"\f66b"}.bi-ladder::before{content:"\f452"}.bi-chat-square-text::before{content:"\f264"}.bi-airplane::before{content:"\f7cd"}.bi-envelope::before{content:"\f32f"}.bi-lock-fill::before{content:"\f47a"}.bi-check2::before{content:"\f272"}.bi-check-circle-fill::before{content:"\f26a"}.bi-exclamation-triangle-fill::before{content:"\f33a"}.bi-info-circle-fill::before{content:"\f430"}.bi-slash-circle::before{content:"\f567"}.bi-dash::before{content:"\f2ea"}
+:root{color-scheme:light;
+--oxd-primary-one:#ff7b1d;--oxd-primary-two:#17a954;--oxd-secondary-one:#ffaa00;--oxd-secondary-four:#76bc21;
+--oxd-gray-darken-2:#38455d;--oxd-gray-darken-1:#64728c;--oxd-gray:#929baa;--oxd-gray-lighten-1:#cfd3de;--oxd-gray-lighten-2:#e8eaef;--oxd-gray-lighten-4:#efefef;--oxd-gray-lighten-5:#eeeff3;
+--oxd-bg-light-gray:#f1f2f5;--oxd-bg-pastel-white:#f6f5fb;
+--oxd-feedback-info:#1e6ceb;--oxd-feedback-danger:#eb0910;--oxd-feedback-warn:#ffa62f;--oxd-feedback-success:#34bc40;
+--oxd-primary-gradient:linear-gradient(90deg,#ff8226 0%,#f35c17 90%);--oxd-secondary-gradient:linear-gradient(90deg,#ff5e00 0%,#ffa46b 90%);
+--fg-1:#38455d;--fg-2:#64728c;--fg-3:#929baa;--bg-app:#f6f5fb;--bg-subtle:#f1f2f5;--border-default:#e8eaef;--border-strong:#cfd3de;--link:#1e6ceb;
+--oxd-radius-card:1.2rem;--oxd-shadow-dialog:0 25px 35px 0 rgba(0,0,0,.18);--oxd-shadow-card:0 4px 8px -4px rgba(0,0,0,.10);--oxd-shadow-dropdown:0 8px 20px rgba(0,0,0,.10)}
+*{box-sizing:border-box}
+body{margin:0;font-family:Nunito,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg-app);color:var(--fg-2);font-size:12px;-webkit-font-smoothing:antialiased}
+button,input,select{font-family:inherit}
+button{cursor:pointer}
+.hide{display:none!important}
+/* walkthrough bar (not part of the product UI) */
+.story{position:sticky;top:0;z-index:70;background:#2b3446;color:#fff;padding:8px 14px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.story b{font-size:13px}
+.story .txt{flex:1;min-width:300px;font-size:12.5px;color:#dfe5f0;line-height:1.45}
+.story .txt em{color:#ffc79c;font-style:normal;font-weight:700}
+.story button{border:0;border-radius:3em;padding:6px 14px;font-weight:700;font-size:12px}
+.sb1{background:#465269;color:#fff}.sb2{background:var(--oxd-primary-one);color:#fff}
+.outbtn{background:#3a4458;color:#fff;border-radius:3em;padding:6px 12px;font-weight:700;font-size:12px;border:0}
+.outbtn .c{background:var(--oxd-primary-one);border-radius:9px;padding:0 6px;margin-left:4px}
+
+/* ---------- app shell (OXD) ---------- */
+.app{display:grid;grid-template-columns:200px 1fr;min-height:calc(100vh - 50px);background:var(--bg-app)}
+.app.mini{grid-template-columns:64px 1fr}
+.side{background:#fff;border-radius:0 0 28px 0;display:flex;flex-direction:column;padding:10px 0 14px;gap:2px;position:relative;z-index:1}
+.logo{align-self:center;margin:2px 0 14px;font-size:20px;font-weight:800;color:#6d6d6f;letter-spacing:-.3px;display:flex;align-items:baseline}
+.logo b{color:var(--oxd-primary-one);font-weight:900}.logo sup{color:var(--oxd-secondary-four);font-size:9px;font-weight:900;margin-left:1px}
+.me{display:flex;flex-direction:column;align-items:center;gap:2px;margin-bottom:10px}
+.avt{border-radius:50%;background:var(--oxd-gray-lighten-2);display:flex;align-items:center;justify-content:center;overflow:hidden;flex:none}
+.avt i{color:var(--oxd-gray)}
+.me .nm{font-size:14px;font-weight:700;color:var(--fg-1);margin-top:6px}
+.me .rl{font-size:11px;color:var(--fg-2)}
+.sbx{margin:0 10px 8px;height:34px;border-radius:999px;background:var(--bg-subtle);display:flex;align-items:center;justify-content:space-between;padding:0 6px 0 14px;font-size:11px;color:var(--fg-2)}
+.sbx span{width:24px;height:24px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:11px}
+.mi{display:flex;align-items:center;gap:12px;height:34px;padding:0 18px;font-size:12px;color:var(--fg-1);cursor:pointer;white-space:nowrap}
+.mi i{font-size:15px;color:var(--fg-2)}
+.mi:not(.on):hover{color:var(--oxd-primary-one)}
+.mi.on{margin-right:12px;border-radius:0 40px 40px 0;background:var(--oxd-secondary-gradient);color:#fff;font-weight:700}
+.mi.on i{color:#fff}
+.mic{height:30px;display:flex;align-items:center;justify-content:center;color:var(--fg-2);font-size:16px;cursor:pointer}
+.mic.on{height:38px;margin-right:6px;border-radius:0 40px 40px 0;background:var(--oxd-secondary-gradient);color:#fff;font-size:17px}
+.mainc{display:flex;flex-direction:column;min-width:0;margin-left:-28px}
+.app.mini .mainc{margin-left:-22px}
+.topb{background:var(--oxd-primary-gradient);height:40px;padding:0 16px 0 66px;display:flex;align-items:center;justify-content:space-between;color:#fff}
+.app.mini .topb,.app.mini .subb,.app.mini .content{padding-left:56px}
+.topb .ttl{font-size:16px;font-weight:800}
+.topb .crumb{font-size:15px}.topb .crumb b{font-weight:800}.topb .crumb .cr{opacity:.85}
+.lo{display:flex;align-items:center;gap:8px;height:24px;padding:0 10px;border-radius:999px;background:rgba(255,255,255,.18);font-size:11px;font-weight:700}
+.subb{background:#fff;min-height:44px;padding:0 16px 0 66px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.subb .l,.subb .r{display:flex;align-items:center;gap:8px}
+.sq{width:32px;height:28px;border-radius:8px;background:var(--bg-subtle);display:flex;align-items:center;justify-content:center;color:var(--fg-2);cursor:pointer}
+.vbar{width:1px;height:22px;background:var(--border-default)}
+.tab{height:28px;padding:0 14px;border-radius:8px;background:var(--bg-subtle);color:var(--fg-1);font-size:11px;display:flex;align-items:center;gap:6px;cursor:pointer;white-space:nowrap}
+.tab.on{background:color-mix(in srgb,var(--oxd-primary-one) 10%,white);color:var(--oxd-primary-one)}
+.gsearch{width:200px;height:30px;border:1px solid var(--border-default);border-radius:999px;padding:0 12px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--fg-3)}
+.gsearch i{color:var(--fg-2)}
+.help{width:26px;height:26px;border-radius:50%;background:var(--oxd-primary-one);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
+.shr{width:26px;height:26px;border-radius:50%;background:var(--bg-subtle);color:var(--fg-2);display:flex;align-items:center;justify-content:center;font-size:12px}
+.content{padding:16px 16px 16px 66px}
+.card{background:#fff;border-radius:var(--oxd-radius-card)}
+.chd{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid var(--border-default);min-height:48px}
+.chd .t{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;color:var(--fg-1)}
+.chd .t i{color:var(--fg-2)}
+.chd .g{font-size:12px;color:var(--fg-2)}
+
+/* ---------- employee list ---------- */
+.elhead{display:flex;justify-content:space-between;align-items:center;padding:4px 4px 10px}
+.cnt{font-size:12px;color:var(--fg-2)}
+.addb{height:32px;padding:0 16px;border-radius:3em;background:var(--oxd-secondary-four);color:#fff;font-size:12px;font-weight:700;border:0;display:flex;align-items:center;gap:6px}
+.addb:hover{background:#84d225}
+.grid{width:100%;border-collapse:collapse}
+.grid th{text-align:left;font-size:11px;font-weight:700;color:var(--fg-1);padding:10px 8px;border-bottom:2px solid var(--border-default);white-space:nowrap}
+.grid th i{font-size:10px;color:var(--fg-3);margin-left:3px}
+.grid td{padding:9px 8px;border-bottom:1px solid var(--border-default);font-size:11px;color:var(--fg-1);vertical-align:middle}
+.grid tr:hover td{background:#fbfbfd}
+.grid .mut{color:var(--fg-2)}
+.lnk{color:var(--fg-1);font-weight:700;cursor:pointer}
+.lnk:hover{color:var(--oxd-primary-one)}
+.ncell{display:flex;align-items:center;gap:10px}
+.rad{width:14px;height:14px;border:1px solid var(--border-strong);border-radius:50%;flex:none}
+
+/* ---------- profile ---------- */
+.pgrid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:16px}
+.hbtn{height:28px;padding:0 14px;border-radius:999px;background:var(--bg-subtle);color:var(--fg-1);font-size:11px;font-weight:700;display:flex;align-items:center;gap:6px;border:0}
+.hbtn:hover{background:var(--oxd-gray-lighten-2)}
+.hbtn i{font-size:13px;color:var(--fg-2)}
+.hbtn svg{color:var(--fg-2)}
+.newt{display:inline-flex;align-items:center;height:16px;padding:0 6px;border-radius:999px;background:color-mix(in srgb,var(--oxd-secondary-four) 16%,white);color:var(--oxd-secondary-four);font-size:9px;font-weight:800;letter-spacing:.02em;margin-left:2px}
+.abody{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:16px 20px 22px}
+.apic{display:flex;flex-direction:column;align-items:center;gap:6px}
+.apic .avt{width:200px;height:200px;border:8px solid var(--bg-subtle);align-items:flex-end}
+.apic .avt i{font-size:200px;line-height:.8}
+.apic .n{font-size:18px;font-weight:800;color:var(--fg-1);margin-top:8px}
+.jt{font-size:11px;font-weight:700;color:var(--fg-2);background:var(--bg-subtle);padding:3px 10px;border-radius:6px}
+.ainfo{display:flex;flex-direction:column;gap:22px;padding-top:8px}
+.isec{display:grid;grid-template-columns:36px 1fr;gap:12px}
+.isec>i{font-size:24px;color:var(--fg-2)}
+.isec .c{display:flex;flex-direction:column;gap:5px}
+.isec .h{font-size:14px;font-weight:700;color:var(--fg-1)}
+.isec .l{font-size:11px;color:var(--fg-1)}.isec .l b{font-weight:700}
+.act{font-size:11px;font-weight:700;color:var(--oxd-primary-two);background:color-mix(in srgb,var(--oxd-feedback-success) 12%,white);padding:2px 10px;border-radius:999px}
+.qa{padding:18px;display:flex;flex-direction:column;gap:16px}
+.qi{display:flex;align-items:center;gap:12px}
+.qi>span:first-child{width:40px;height:40px;border-radius:10px;color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px}
+.qi small{display:block;font-size:9px;color:var(--fg-2)}.qi b{font-size:13px;font-weight:700;color:var(--fg-1)}
+.w3{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.w3 .card{min-height:200px}
+.wb{padding:14px 16px;font-size:11px}
+.lb{display:flex;gap:12px;align-items:center;border:1px solid var(--border-default);border-radius:10px;padding:10px}
+.lb b{font-size:20px;font-weight:800;color:var(--oxd-feedback-danger)}
+.lb span{flex:1;display:flex;flex-direction:column;gap:4px;color:var(--oxd-feedback-danger)}
+.lb span i{height:4px;border-radius:2px;background:var(--oxd-feedback-danger)}
+
+/* status pills (Form List palette) */
+.st{display:inline-flex;align-items:center;gap:6px;height:22px;padding:0 10px;border-radius:999px;font-size:11px;font-weight:700;white-space:nowrap}
+.st:before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.st-ns{background:var(--oxd-gray-lighten-5);color:var(--fg-3)}
+.st-ip{background:color-mix(in srgb,var(--oxd-feedback-info) 12%,white);color:var(--oxd-feedback-info)}
+.st-na{background:color-mix(in srgb,var(--oxd-feedback-warn) 20%,white);color:#d98200}
+.st-c{background:color-mix(in srgb,var(--oxd-feedback-success) 14%,white);color:var(--oxd-feedback-success)}
+.st-x{background:var(--oxd-gray-lighten-4);color:var(--fg-2)}
+
+/* ---------- candidates ---------- */
+.cwrap{padding:16px 18px;display:grid;grid-template-columns:190px minmax(0,1fr);column-gap:16px}
+.cfl{display:flex;flex-direction:column;gap:2px;border-right:1px solid var(--border-default);padding-right:12px}
+.cfl .addb{justify-content:center;width:100%}
+.cfl hr{border:0;height:1px;background:var(--border-default);margin:12px 0;width:100%}
+.allv{height:32px;border-radius:999px;background:color-mix(in srgb,var(--oxd-secondary-four) 16%,white);color:var(--oxd-secondary-four);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:space-between;padding:0 10px 0 12px;margin-bottom:8px}
+.flt{display:flex;flex-direction:column;gap:2px}
+.flt div{height:34px;border-radius:999px;padding:0 8px 0 14px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--fg-1)}
+.flt div.on{background:var(--bg-subtle);font-weight:700}
+.flt em{font-style:normal;min-width:22px;height:20px;padding:0 6px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}
+.chead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.ctools{display:flex;align-items:center;gap:8px}
+.csrch{width:240px;height:32px;border:1px solid var(--border-default);border-radius:999px;padding:0 3px 0 12px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--fg-3)}
+.csrch span,.cfn{width:26px;height:26px;border-radius:50%;background:var(--bg-subtle);display:flex;align-items:center;justify-content:center;color:var(--fg-2);font-size:11px}
+.cfn{width:30px;height:30px;font-size:12px}
+.xb{height:30px;padding:0 16px;border-radius:999px;background:color-mix(in srgb,var(--oxd-feedback-info) 10%,white);color:var(--oxd-feedback-info);font-size:12px;font-weight:700;display:flex;align-items:center;gap:6px}
+.vac{font-size:10px;color:var(--fg-2)}
+.cname{display:flex;flex-direction:column;line-height:1.25}
+.cname b{font-weight:400;color:var(--fg-1)}
+.ssel{height:26px;padding:0 26px 0 10px;border:1px solid var(--border-default);border-radius:8px;font-size:11px;color:var(--fg-1);background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 16 16'%3E%3Cpath fill='%2364728c' d='M1.6 4.6a.5.5 0 0 1 .7 0L8 10.3l5.7-5.7a.5.5 0 0 1 .7.7l-6 6a.5.5 0 0 1-.7 0l-6-6a.5.5 0 0 1 0-.7z'/%3E%3C/svg%3E") no-repeat right 9px center;appearance:none;-webkit-appearance:none;cursor:pointer}
+.chip{display:inline-flex;align-items:center;height:26px;padding:0 10px;border-radius:8px;background:var(--bg-subtle);font-size:11px;font-weight:700;color:var(--fg-1)}
+.acts{display:flex;gap:10px;justify-content:flex-end;align-items:center}
+.ic{position:relative;width:30px;height:30px;border-radius:50%;background:var(--bg-subtle);color:var(--fg-2);display:inline-flex;align-items:center;justify-content:center;font-size:14px;flex:none}
+.ic.f{cursor:pointer}
+.ic.f:hover{background:var(--oxd-gray-lighten-2);color:var(--fg-1)}
+.ic .dot{position:absolute;top:-6px;right:-8px;min-width:24px;height:16px;padding:0 4px;border-radius:999px;background:var(--oxd-primary-one);color:#fff;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center;border:2px solid #fff}
+.ic.f.wn .dot{background:var(--oxd-feedback-warn)}
+.ic.f.dn .dot{background:var(--oxd-feedback-success)}
+.ic.f.off{cursor:not-allowed;background:var(--bg-subtle);color:var(--oxd-gray-lighten-1)}
+.ic.f.off .dot{opacity:.8}
+.ic.f.off:hover{background:var(--bg-subtle);color:var(--fg-2)}
+.ic.f.off .dot{background:var(--oxd-gray)}
+[data-tip]{position:relative}
+[data-tip]:hover:after{pointer-events:none;content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--fg-1);color:#fff;font-size:11px;font-weight:600;padding:7px 11px;border-radius:8px;white-space:pre;z-index:40;line-height:1.45;box-shadow:var(--oxd-shadow-dropdown);text-align:left}
+#candRows [data-tip]:hover:after{left:auto;right:0;transform:none}
+
+/* ---------- dialogs ---------- */
+.ov{position:fixed;inset:0;background:rgba(56,69,93,.45);display:none;align-items:flex-start;justify-content:center;z-index:100;padding:56px 16px 40px;overflow:auto}
+.ov.show{display:flex}
+.mod{position:relative;width:820px;max-width:96vw;background:#fff;border-radius:var(--oxd-radius-card);box-shadow:var(--oxd-shadow-dialog);padding:20px 24px;display:flex;flex-direction:column}
+.mod .x{position:absolute;right:-8px;top:-8px;width:22px;height:22px;border-radius:50%;background:var(--oxd-gray-lighten-1);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;border:0}
+.mod h3{margin:0;font-size:15px;font-weight:700;color:var(--fg-1);padding-bottom:14px;border-bottom:1px solid var(--border-default)}
+.mod.confirm{width:480px;text-align:center;padding:26px 28px 22px}
+.mod.confirm h3{border:0;padding-bottom:6px;font-size:16px}
+.mod.confirm .msg{font-size:12px;color:var(--fg-2);line-height:1.6}
+.foot{display:flex;justify-content:flex-end;align-items:center;gap:10px;border-top:1px solid var(--border-default);padding-top:16px;margin-top:4px}
+.mod.confirm .foot{border:0;justify-content:center;margin-top:16px;padding-top:0}
+.foot .req{flex:1;font-size:11px;color:var(--fg-2)}
+.btn{height:36px;padding:0 26px;border-radius:3em;font-size:13px;font-weight:700;border:1px solid transparent;display:inline-flex;align-items:center;gap:6px}
+.bg{background:var(--oxd-secondary-four);color:#fff}.bg:hover{background:#84d225}
+.bgh{background:#fff;border-color:var(--oxd-secondary-four);color:var(--oxd-secondary-four)}
+.bgr{background:var(--bg-subtle);color:var(--fg-2)}.bgr:hover{background:var(--oxd-gray-lighten-2)}
+.binfo{background:color-mix(in srgb,var(--oxd-feedback-info) 12%,white);color:var(--oxd-feedback-info)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.aegrid{display:grid;grid-template-columns:170px minmax(0,1fr);gap:28px;padding:20px 0 24px}
+.aegrid>.avt{width:150px;height:150px;border:6px solid var(--bg-subtle);align-items:flex-end}
+.aegrid>.avt i{font-size:150px;line-height:.8;color:#fff}
+.aecol{display:flex;flex-direction:column;gap:22px}
+.fld{display:flex;flex-direction:column;gap:8px}
+.lbl{font-size:12px;font-weight:700;color:var(--fg-1)}
+.fullname{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border-default);border-radius:10px;overflow:hidden}
+.fullname input{height:40px;padding:0 12px;border:0;border-right:1px solid var(--border-default);font-size:12px;color:var(--fg-1);outline:0;min-width:0}
+.fullname input:last-child{border-right:0}
+.fullname input::placeholder{color:var(--fg-3)}
+.inp{height:40px;border:1px solid var(--border-default);border-radius:10px;padding:0 12px;font-size:12px;color:var(--fg-1);width:100%;background:#fff;outline:0}
+.inp:focus{border-color:var(--oxd-primary-one)}
+.sel2{display:flex;align-items:center;justify-content:space-between;padding:0 6px 0 12px}
+.sel2 span{width:30px;height:30px;border-radius:8px;background:var(--bg-subtle);display:flex;align-items:center;justify-content:center;color:var(--fg-2);font-size:10px}
+.row2{display:grid;grid-template-columns:200px 250px;gap:18px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:14px}
+.tl{display:flex;align-items:flex-start;gap:24px}
+.tl>div,.tl>b{width:330px;display:flex;flex-direction:column;gap:2px}
+.tl b{font-size:12px;font-weight:700;color:var(--fg-1);display:flex;align-items:center;gap:6px}
+.tl small{font-size:11px;color:var(--fg-2)}
+.tl.inline{align-items:center;gap:70px}.tl.inline>b{width:auto}
+.tgsec{display:flex;flex-direction:column;gap:20px;border-bottom:1px solid var(--border-default);padding-bottom:22px}
+.tg{width:40px;height:22px;border-radius:999px;background:var(--oxd-gray-lighten-1);position:relative;border:0;padding:0;flex:none;transition:background .15s}
+.tg:after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.2);transition:left .15s}
+.tg.on{background:var(--oxd-primary-one)}.tg.on:after{left:21px}
+.f360box{display:flex;flex-direction:column;gap:8px;margin-top:-4px;max-width:520px}
+.ms{position:relative;min-height:40px;border:1px solid var(--border-default);border-radius:10px;padding:5px 8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;background:#fff;cursor:text}
+.ms.focus{border-color:var(--oxd-primary-one)}
+.ms input{border:0;outline:0;flex:1;min-width:150px;font-size:12px;padding:4px;color:var(--fg-1);background:transparent}
+.ms input::placeholder{color:var(--fg-3)}
+.mc{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 6px 0 12px;border-radius:999px;background:var(--bg-subtle);font-size:12px;color:var(--fg-1)}
+.mc button{border:0;background:transparent;padding:0;display:flex;color:var(--oxd-gray-lighten-1);font-size:13px}
+.mc button:hover{color:var(--fg-2)}
+.msdd{position:absolute;top:calc(100% + 6px);left:-1px;right:-1px;z-index:5;background:#fff;border-radius:12px;border:1px solid var(--border-default);box-shadow:var(--oxd-shadow-dropdown);padding:8px 0;max-height:240px;overflow:auto;text-align:left}
+.msdd div{padding:9px 14px;font-size:12px;color:var(--fg-2);cursor:pointer}
+.msdd div:hover{background:var(--bg-subtle);color:var(--fg-1)}
+.msdd small{display:block;font-size:10.5px;color:var(--fg-3);margin-top:1px}
+.msdd .none{color:var(--fg-3);cursor:default}.msdd .none:hover{background:#fff;color:var(--fg-3)}
+.warnl{position:relative;display:block;background:color-mix(in srgb,var(--oxd-feedback-info) 8%,white);color:var(--fg-1);border-radius:10px;padding:10px 12px 10px 34px;font-size:11.5px;line-height:1.5}
+.warnl:before{content:"\f430";font-family:bootstrap-icons;color:var(--oxd-feedback-info);font-size:14px;line-height:1;position:absolute;left:12px;top:12px}
+.warnl b{font-weight:700}
+.fo{display:flex;gap:12px;align-items:flex-start;padding:10px 14px;border-radius:10px;border:1px solid var(--border-default);margin-bottom:8px;text-align:left;cursor:pointer;background:#fff}
+.fo:hover{border-color:var(--border-strong)}
+.fo.lock{background:var(--bg-subtle);cursor:default}
+.fo input{margin-top:2px;accent-color:var(--oxd-primary-one);width:15px;height:15px;flex:none}
+.fo .t{font-weight:700;color:var(--fg-1);font-size:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.fo .d{font-size:11px;color:var(--fg-2);margin-top:3px;display:flex;align-items:center;gap:6px}
+.tag{display:inline-flex;align-items:center;height:18px;padding:0 8px;border-radius:999px;font-size:10px;font-weight:700}
+.tg-ok{background:color-mix(in srgb,var(--oxd-feedback-success) 14%,white);color:var(--oxd-primary-two)}
+.tg-a{background:color-mix(in srgb,var(--oxd-primary-one) 14%,white);color:var(--oxd-primary-one)}
+
+/* ---------- emails drawer & toast ---------- */
+.drawer{position:fixed;top:0;right:0;height:100vh;width:400px;background:#fff;box-shadow:var(--oxd-shadow-dialog);z-index:150;transform:translateX(105%);transition:.25s;display:flex;flex-direction:column}
+.drawer.open{transform:none}
+.drawer header{padding:14px 16px;border-bottom:1px solid var(--border-default);display:flex;justify-content:space-between;align-items:center}
+.drawer header b{color:var(--fg-1);font-size:14px}
+.drawer .list{overflow:auto;padding:12px 14px;flex:1}
+.ib{background:var(--bg-subtle);border:0;border-radius:3em;padding:6px 14px;font-weight:700;color:var(--fg-2);font-size:12px}
+.mail{border:1px solid var(--border-default);border-radius:12px;padding:10px 12px;margin-bottom:10px;font-size:12px}
+.mail .k{font-size:10px;font-weight:800;border-radius:999px;padding:2px 8px;display:inline-block;margin-bottom:4px}
+.k-sp{background:color-mix(in srgb,var(--oxd-feedback-info) 12%,white);color:var(--oxd-feedback-info)}
+.k-na{background:color-mix(in srgb,var(--oxd-feedback-warn) 20%,white);color:#d98200}
+.k-cl{background:#efe9ff;color:#6a4fd8}
+.k-wd{background:color-mix(in srgb,var(--oxd-feedback-danger) 10%,white);color:var(--oxd-feedback-danger)}
+.mail b{color:var(--fg-1)}.mail .to{color:var(--fg-3);font-size:11px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:22px;background:#fff;border-left:6px solid var(--oxd-feedback-success);box-shadow:var(--oxd-shadow-dialog);border-radius:12px;padding:12px 18px 12px 46px;z-index:200;display:none;max-width:600px;font-size:12px;color:var(--fg-1);line-height:1.55}
+.toast:before{content:"\f26a";font-family:bootstrap-icons;position:absolute;left:16px;top:12px;font-size:18px;color:var(--oxd-feedback-success)}
+.toast.show{display:block}
+.toast b{display:block;color:var(--fg-1);font-size:13px;margin-bottom:2px}
+.toast .trg{display:inline-block;border-radius:999px;padding:1px 8px;font-size:10px;font-weight:800;margin-right:4px}
+.trA{background:color-mix(in srgb,var(--oxd-primary-one) 14%,white);color:var(--oxd-primary-one)}
+.trB{background:#efe9ff;color:#6a4fd8}
+.trM{background:color-mix(in srgb,var(--oxd-feedback-info) 12%,white);color:var(--oxd-feedback-info)}
+</style>
+</head>
+<body>
+
+<div class="story">
+  <b>Forms360 in practice</b>
+  <button class="sb1" onclick="storyGo(-1)">&#8592;</button>
+  <span id="sNum" style="font-weight:800;font-size:12px"></span>
+  <button class="sb2" onclick="storyGo(1)">Next &#8594;</button>
+  <div class="txt" id="sTxt"></div>
+  <button class="outbtn" onclick="toggleOut()"><i class="bi bi-envelope"></i> Emails sent<span class="c" id="outC">0</span></button>
+  <button class="sb1" onclick="location.reload()">Reset</button>
+</div>
+
+<!-- EMPLOYEE LIST -->
+<section class="view" id="v-emps">
+<div class="app">
+  <aside class="side">
+    <div class="logo"><b>O</b>range<sup>HRM</sup></div>
+    <div class="me"><span class="avt" style="width:84px;height:84px"><i class="bi bi-person-fill" style="font-size:52px"></i></span><span class="nm">Admin</span></div>
+    <div class="mi"><i class="bi bi-person-gear"></i>HR Administration</div><div class="mi on" onclick="go('emps')"><i class="bi bi-people"></i>Employee Management</div><div class="mi"><i class="bi bi-file-earmark-bar-graph"></i>Reports and Analytics</div><div class="mi"><i class="bi bi-calendar2-week"></i>Leave</div><div class="mi"><i class="bi bi-clock"></i>Time Tracking</div><div class="mi"><i class="bi bi-calendar-check"></i>Attendance</div><div class="mi"><i class="bi bi-window"></i>Roster</div><div class="mi" onclick="go('cands')"><i class="bi bi-search"></i>Recruitment (ATS)</div><div class="mi"><i class="bi bi-person-check"></i>Onboarding</div><div class="mi"><i class="bi bi-easel"></i>Training</div><div class="mi"><i class="bi bi-bullseye"></i>Goals</div><div class="mi"><i class="bi bi-award"></i>Performance</div>
+  </aside>
+  <main class="mainc">
+    <div class="topb"><span class="ttl">Employee Management</span><span class="lo"><i class="bi bi-box-arrow-right"></i>Log Out<i class="bi bi-caret-down-fill" style="font-size:9px;margin-left:4px"></i></span></div>
+    <div class="subb"><div class="l"><span class="sq"><i class="bi bi-house"></i></span><span class="tab on">Employee List</span><span class="tab">Directory</span><span class="tab">Buzz</span><span class="tab">Organization Chart</span><span class="tab">More<i class="bi bi-chevron-down" style="font-size:9px"></i></span></div></div>
+    <div class="content"><div class="card" style="padding:16px">
+      <div class="elhead"><span class="cnt" id="empCount"></span><button class="addb" onclick="openAdd()"><i class="bi bi-plus-lg"></i>Add</button></div>
+      <table class="grid"><thead><tr><th style="width:44px"></th><th>Employee Id</th><th>Name</th><th>Job Title</th><th>Location</th><th>Supervisor</th></tr></thead><tbody id="empRows"></tbody></table>
+    </div></div>
+  </main>
+</div>
+</section>
+
+<!-- EMPLOYEE PROFILE -->
+<section class="view" id="v-prof">
+<div class="app">
+  <aside class="side">
+    <div class="logo"><b>O</b>range<sup>HRM</sup></div>
+    <div class="me"><span class="avt" style="width:84px;height:84px"><i class="bi bi-person-fill" style="font-size:52px"></i></span><span class="nm">Admin</span><span class="rl">Global HR Manager</span></div>
+    <div class="sbx">Search<span><i class="bi bi-search"></i></span></div>
+    <div class="mi"><i class="bi bi-person-gear"></i>HR Administration</div><div class="mi on" onclick="go('emps')"><i class="bi bi-people"></i>Employee Management</div><div class="mi"><i class="bi bi-file-earmark-bar-graph"></i>Reports and Analytics</div><div class="mi"><i class="bi bi-calendar2-week"></i>Leave</div><div class="mi"><i class="bi bi-clock"></i>Time Tracking</div><div class="mi"><i class="bi bi-calendar-check"></i>Attendance</div><div class="mi"><i class="bi bi-window"></i>Roster</div><div class="mi" onclick="go('cands')"><i class="bi bi-search"></i>Recruitment (ATS)</div><div class="mi"><i class="bi bi-person-check"></i>Onboarding</div><div class="mi"><i class="bi bi-easel"></i>Training</div><div class="mi"><i class="bi bi-bullseye"></i>Goals</div><div class="mi"><i class="bi bi-award"></i>Performance</div>
+  </aside>
+  <main class="mainc">
+    <div class="topb"><span class="crumb"><b>Employee Management</b> / Employee List / <span class="cr" id="pCrumb"></span></span><span class="lo"><i class="bi bi-box-arrow-right"></i>Log Out<i class="bi bi-caret-down-fill" style="font-size:9px;margin-left:4px"></i></span></div>
+    <div class="subb">
+      <div class="l">
+        <span class="sq" onclick="go('emps')"><i class="bi bi-house"></i></span><span class="sq" onclick="go('emps')"><i class="bi bi-arrow-left"></i></span><span class="vbar"></span>
+        <span class="tab op-tab on" id="pt-profile" onclick="profTab('profile')">Profile</span><span class="tab op-tab">Personal Details</span><span class="tab op-tab">Job</span><span class="tab op-tab">Salary</span><span class="tab op-tab">Contact Details</span><span class="tab op-tab" id="pt-forms" onclick="profTab('forms')">Forms360</span><span class="tab op-tab">More<i class="bi bi-chevron-down" style="font-size:9px"></i></span>
+      </div>
+      <div class="r"><span class="gsearch">Search<i class="bi bi-search"></i></span><span class="help">?</span></div>
+    </div>
+    <div class="content">
+      <div id="profMain" class="pgrid">
+        <div class="card">
+          <div class="chd"><span class="t"><i class="bi bi-person-lines-fill"></i>About</span>
+            <span style="display:flex;align-items:center;gap:8px">
+              <button class="hbtn" id="btnPb" onclick="openInitPb()"><svg width="15" height="15" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"><path style="fill:currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M59.5644 84.8452C48.2982 84.8452 39.9765 85.2354 34.2222 85.6771L34.2071 85.6783C30.3586 85.967 27.2022 88.2129 25.9439 91.642C21.0926 104.965 17.7398 118.699 15.9363 132.633C15.6728 134.727 17.3638 136.691 19.9923 136.843C21.563 136.931 24.3758 137.012 27.2707 137.096C29.6458 137.165 32.0761 137.236 33.9211 137.313C37.9226 137.48 45.1625 140.317 45.4823 143.934L48.7566 180.963C48.9524 183.177 48.6978 184.644 50.6352 184.825C52.1139 184.96 52.2155 185.081 53.1587 185.185C55.488 185.44 55.851 185.59 59.5419 185.591C64.6557 185.563 69.7646 185.309 74.8494 184.827C79.2178 184.413 83.1293 187.286 83.586 191.244C84.0427 195.201 80.8717 198.745 76.5034 199.158C70.8906 199.69 65.2525 199.97 59.6101 200L59.5644 200C54.8479 200 52.4808 199.74 49.838 199.45C48.9642 199.354 48.0602 199.255 47.0312 199.161L47.0226 199.16C36.9519 198.228 33.6702 190.8 32.902 182.113L30.1934 151.482C27.3097 151.395 20.4332 151.305 19.0012 151.224L18.993 151.224C7.58173 150.571 -1.20971 141.548 0.136328 130.977L0.138007 130.964C2.06625 116.06 5.6523 101.371 10.8416 87.121L10.8459 87.1092C14.0674 78.3135 22.5563 72.0967 32.8859 71.3186C39.1321 70.8393 47.9023 70.4357 59.5644 70.4357C71.2244 70.4357 79.998 70.8395 86.2363 71.3145C96.5574 72.0917 105.053 78.3083 108.274 87.1056L108.277 87.1131C110.76 93.9191 112.875 100.83 114.616 107.822C115.583 111.704 112.893 115.56 108.608 116.435C104.324 117.311 100.067 114.874 99.1006 110.993C97.4735 104.458 95.4965 97.9986 93.1761 91.6382C91.9184 88.2096 88.7576 85.9627 84.9166 85.6742L84.9077 85.6735C79.1538 85.2354 70.8256 84.8452 59.5644 84.8452Z"/><path style="fill:currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M56.7335 11.5104C51.2867 11.5104 46.0629 13.4707 42.2113 16.9599C38.3599 20.4492 35.3961 26.6311 35.3961 31.5657C35.3961 36.5003 38.3598 41.9575 42.2113 45.4468M42.2113 45.4468C46.0629 48.936 51.2867 50.8963 56.7335 50.8963C62.1803 50.8963 69.0038 48.2114 72.8555 44.722C76.707 41.2328 78.8707 36.5004 78.8707 31.5657C78.8707 26.631 76.707 21.8986 72.8556 18.4095C69.0039 14.9201 62.1803 11.5104 56.7335 11.5104M32.5645 8.22045C39.3989 2.02887 47.0683 0 56.7335 0C66.3989 0 74.0679 2.02893 80.9023 8.22041C87.7369 14.4121 91.5761 22.8097 91.5761 31.5657C91.5761 40.3218 87.7369 48.7194 80.9023 54.911C74.0679 61.1025 66.3989 63.1315 56.7335 63.1315C47.0683 63.1315 39.3989 61.1026 32.5645 54.911C25.7302 48.7195 21.8907 40.3219 21.8907 31.5657C21.8907 22.8096 25.7302 14.412 32.5645 8.22045Z"/><path style="fill:currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M143.833 136.466C126.88 136.466 115.836 137.218 109.089 137.958L109.085 137.959C106.644 138.226 106.776 139.851 106.5 142.452C106.017 147.087 105.572 153.402 105.572 161.028L105.572 161.042C105.559 167.241 105.869 173.437 106.501 179.61C106.779 182.208 106.645 183.831 109.084 184.097L109.086 184.097C115.832 184.835 126.887 185.591 143.833 185.591C160.787 185.591 171.829 184.839 178.577 184.098L178.583 184.097C181.023 183.831 182.89 182.206 183.166 179.606C183.649 174.97 184.095 168.655 184.095 161.028C184.095 153.402 183.649 147.087 183.166 142.451C182.89 139.851 181.023 138.226 178.582 137.959L178.577 137.958C171.834 137.218 160.783 136.466 143.833 136.466ZM107.181 123.653C114.687 122.83 126.383 122.057 143.833 122.057C161.282 122.057 172.987 122.83 180.49 123.654C190.774 124.779 198.055 132.133 199 141.084L199.001 141.093C199.525 146.122 200 152.894 200 161.028C200 169.163 199.525 175.935 199.001 180.964L199 180.973C198.055 189.923 190.774 197.278 180.49 198.403C172.983 199.227 161.287 200 143.833 200C126.383 200 114.679 199.223 107.182 198.403M107.177 123.654C96.8928 124.779 91.6112 132.133 90.6666 141.084L90.6657 141.093C90.1417 146.12 89.6668 152.89 89.6666 161.022C89.6531 167.676 89.9862 174.327 90.6645 180.952L90.6666 180.973C91.6112 189.925 96.894 197.28 107.18 198.403"/><path style="fill:currentColor" d="M174.96 126.338C174.96 122.79 174.189 119.277 172.69 115.999C171.191 112.721 168.994 109.743 166.225 107.234C163.456 104.725 160.168 102.735 156.55 101.377C152.932 100.02 149.054 99.3207 145.137 99.3207C141.221 99.3207 137.343 100.02 133.725 101.377C130.107 102.735 126.819 104.725 124.05 107.234C121.28 109.743 119.084 112.721 117.585 115.999C116.086 119.277 115.315 122.79 115.315 126.338H128.749C128.749 124.389 129.173 122.458 129.996 120.657C130.82 118.855 132.027 117.218 133.549 115.84C135.071 114.461 136.877 113.367 138.866 112.621C140.854 111.875 142.985 111.491 145.137 111.491C147.29 111.491 149.421 111.875 151.409 112.621C153.397 113.367 155.204 114.461 156.726 115.84C158.248 117.218 159.455 118.855 160.279 120.657C161.102 122.458 161.526 124.389 161.526 126.338H174.96Z"/></svg>Initiate Preboarding</button>
+              <span id="wIF" style="display:inline-flex"><button class="hbtn" id="btnIF" onclick="openPicker('emp',curEmp)"><i class="bi bi-file-earmark-text"></i>Initiate Forms<span class="newt">NEW</span></button></span>
+              <i class="bi bi-gear-fill g" style="margin-left:4px"></i>
+            </span>
+          </div>
+          <div class="abody">
+            <div class="apic"><span class="avt"><i class="bi bi-person-fill"></i></span><span class="n" id="pName"></span><span class="jt">Accompanist</span><span style="font-size:11px;color:var(--fg-1)"><i class="bi bi-geo-alt-fill" style="color:var(--fg-2)"></i> Adelaide - Australia</span></div>
+            <div class="ainfo">
+              <div class="isec"><i class="bi bi-person-badge"></i><div class="c"><span class="h">Basic Info</span><span class="l"><b>Full Name:</b> <span id="pFull"></span></span><span class="l"><b>Employee Id:</b> <span id="pId"></span></span><span class="l"><b>Supervisor:</b> <span id="pSup"></span></span></div></div>
+              <div class="isec"><i class="bi bi-briefcase"></i><div class="c"><span class="h">Job</span><span class="l"><b>Joined Date:</b> 2026-11-14</span><span class="l"><b>Sub Unit:</b> Administration</span><span class="l" style="display:flex;align-items:center;gap:6px"><b>Status:</b><span class="act">Active</span></span></div></div>
+              <div class="isec"><i class="bi bi-person-lines-fill"></i><div class="c"><span class="h">Contact</span><span class="l"><b>Work Email:</b> <span id="pMail"></span></span><span class="l"><b>Mobile:</b> -</span></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="chd"><span class="t"><i class="bi bi-layers"></i>Quick Access</span><i class="bi bi-gear-fill g"></i></div>
+          <div class="qa">
+            <div class="qi"><span style="background:var(--oxd-secondary-one)"><i class="bi bi-star-fill"></i></span><span><small>Performance</small><b>Appraisals</b></span></div>
+            <div class="qi"><span style="background:#3cc79a"><i class="bi bi-bullseye"></i></span><span><small>Goals</small><b>Goals</b></span></div>
+            <div class="qi"><span style="background:#5b6be6"><i class="bi bi-person-workspace"></i></span><span><small>Career Development</small><b>Individual Development Plans</b></span></div>
+            <div class="qi"><span style="background:var(--oxd-primary-one)"><i class="bi bi-person"></i></span><span><small>Discipline</small><b>Disciplinary Cases</b></span></div>
+          </div>
+        </div>
+        <div class="w3">
+          <div class="card"><div class="chd"><span class="t"><i class="bi bi-door-open"></i>Leave Balance</span><i class="bi bi-gear-fill g"></i></div><div class="wb"><div class="lb"><b>10.00</b><span>Sick Leave<i></i></span></div></div></div>
+          <div class="card"><div class="chd"><span class="t"><i class="bi bi-person-walking"></i>Leave List</span><i class="bi bi-gear-fill g"></i></div><div class="wb" style="color:var(--fg-2)">Leave Request(s) From May 2026</div></div>
+          <div class="card"><div class="chd"><span class="t"><i class="bi bi-person-check"></i>Timesheets</span><i class="bi bi-gear-fill g"></i></div><div class="wb" style="color:var(--fg-3)">No Timesheet was found</div></div>
+        </div>
+      </div>
+      <div id="profForms" class="card hide" style="padding:16px">
+        <div class="elhead"><span class="cnt" id="pfCount"></span></div>
+        <table class="grid"><thead><tr><th>Form</th><th>Status</th><th>Current Step</th><th>Started by</th><th>Created Date</th></tr></thead><tbody id="pfRows"></tbody></table>
+      </div>
+    </div>
+  </main>
+</div>
+</section>
+
+<!-- CANDIDATES -->
+<section class="view" id="v-cands">
+<div class="app mini">
+  <aside class="side">
+    <span class="mic" style="color:var(--oxd-primary-one);font-size:18px"><i class="bi bi-circle-half"></i></span>
+    <span class="avt" style="align-self:center;width:30px;height:30px;margin:12px 0 16px"><i class="bi bi-person-fill" style="font-size:18px"></i></span>
+    <span class="mic"><i class="bi bi-person-badge"></i></span><span class="mic" onclick="go('emps')"><i class="bi bi-people"></i></span><span class="mic"><i class="bi bi-file-earmark-person"></i></span><span class="mic"><i class="bi bi-calendar2-week"></i></span><span class="mic"><i class="bi bi-clock"></i></span><span class="mic"><i class="bi bi-calendar-check"></i></span><span class="mic"><i class="bi bi-window"></i></span><span class="mic on"><i class="bi bi-search"></i></span><span class="mic"><i class="bi bi-person-check"></i></span><span class="mic"><i class="bi bi-easel"></i></span><span class="mic"><i class="bi bi-bullseye"></i></span><span class="mic"><i class="bi bi-award"></i></span><span class="mic"><i class="bi bi-activity"></i></span><span class="mic"><i class="bi bi-ladder"></i></span><span class="mic"><i class="bi bi-chat-square-text"></i></span><span class="mic"><i class="bi bi-airplane"></i></span><span class="mic"><i class="bi bi-chevron-down"></i></span>
+  </aside>
+  <main class="mainc">
+    <div class="topb"><span class="ttl">Recruitment (ATS)</span><span class="lo"><i class="bi bi-box-arrow-right"></i>Log Out<i class="bi bi-caret-down-fill" style="font-size:9px;margin-left:4px"></i></span></div>
+    <div class="subb"><div class="l"><span class="sq"><i class="bi bi-house"></i></span><span class="vbar"></span><span class="tab on">Candidates</span><span class="tab">Vacancies</span><span class="tab">Configuration<i class="bi bi-chevron-down" style="font-size:9px"></i></span></div><div class="r"><span class="help">?</span><span class="shr"><i class="bi bi-reply-fill" style="transform:scaleX(-1)"></i></span></div></div>
+    <div class="content"><div class="card cwrap">
+      <div class="cfl">
+        <button class="addb"><i class="bi bi-plus-lg"></i>Add Candidate</button>
+        <hr>
+        <span class="allv"><i class="bi bi-eye"></i>All Vacancies<i class="bi bi-chevron-down" style="font-size:9px"></i></span>
+        <div class="flt" id="flt"></div>
+      </div>
+      <div style="min-width:0">
+        <div class="chead"><span class="cnt" id="candCount"></span><div class="ctools"><div class="csrch">Search<span><i class="bi bi-search"></i></span></div><span class="cfn"><i class="bi bi-funnel"></i></span><span class="xb"><i class="bi bi-filetype-csv"></i>CSV</span><span class="xb"><i class="bi bi-filetype-xlsx"></i>XLSX</span></div></div>
+        <table class="grid"><thead><tr><th>Candidate <i class="bi bi-arrow-down-up"></i></th><th>Email <i class="bi bi-arrow-down-up"></i></th><th>Date Applied <i class="bi bi-sort-up"></i></th><th>Stage</th><th style="width:130px"></th></tr></thead><tbody id="candRows"></tbody></table>
+      </div>
+    </div></div>
+  </main>
+</div>
+</section>
+
+<!-- MODALS -->
+<div class="ov" id="m-add"><div class="mod">
+  <button class="x" onclick="hide('m-add')"><i class="bi bi-x-lg"></i></button><h3>Add Employee</h3>
+  <div class="aegrid">
+    <span class="avt"><i class="bi bi-person-fill"></i></span>
+    <div class="aecol">
+      <div class="fld"><span class="lbl">Employee Full Name*</span><div class="fullname"><input id="aF" value="Nadia"><input placeholder="Middle Name"><input id="aL" value="Fernando"></div></div>
+      <div class="tl inline"><b>Auto Generate Employee ID</b><button class="tg on" onclick="this.classList.toggle('on')"></button></div>
+      <div class="row2">
+        <div class="fld"><span class="lbl">Joined Date*</span><div class="inp sel2">2026-11-14<span><i class="bi bi-calendar3"></i></span></div></div>
+        <div class="fld"><span class="lbl">Location*</span><div class="inp sel2">Adelaide<span><i class="bi bi-caret-down-fill"></i></span></div></div>
+      </div>
+      <div class="tgsec">
+        <div class="tl"><div><b>Initiate Preboarding upon Adding Employee</b><small>(This is an irreversible action.)</small></div><button class="tg" id="aPb" onclick="aeTog('aPb')"></button></div>
+        <div class="tl"><div><b>Initiate Forms360 upon Adding Employee<span class="newt">NEW</span></b><small>(This is an irreversible action.)</small></div><button class="tg" id="aFt" onclick="aeTog('aFt')"></button></div>
+        <div class="f360box hide" id="aBox"><span class="lbl">Forms*</span><div class="ms" id="aMs" onclick="$('aQ').focus()"><span id="aChips" style="display:contents"></span><input id="aQ" placeholder="Type for hints..." autocomplete="off" onfocus="msOpen(true)" onblur="msOpen(false)" oninput="msDraw()" onkeydown="msKey(event)"><div class="msdd hide" id="aDd"></div></div><div class="warnl" id="aWarn"></div></div>
+      </div>
+      <div class="tl"><div><b style="font-weight:400">Create Login Details</b></div><button class="tg" onclick="this.classList.toggle('on')"></button></div>
+    </div>
+  </div>
+  <div class="foot"><span class="req">* Required</span><button class="btn bgh" onclick="hide('m-add')">Cancel</button><button class="btn bg" onclick="saveAdd()">Save</button></div>
+</div></div>
+
+<div class="ov" id="m-pb"><div class="mod confirm">
+  <button class="x" onclick="hide('m-pb')"><i class="bi bi-x-lg"></i></button><h3>Are you sure?</h3>
+  <div class="msg">You are about to initiate Preboarding for this employee.<br>This is an irreversible action.<br>Are you sure you want to continue?</div>
+  <div class="foot"><button class="btn bgr" onclick="hide('m-pb')">No, Cancel</button><button class="btn binfo" onclick="doInitPb()">Yes, Initiate</button></div>
+</div></div>
+
+<div class="ov" id="m-pick"><div class="mod confirm" style="width:560px">
+  <button class="x" onclick="hide('m-pick')"><i class="bi bi-x-lg"></i></button><h3>Are you sure?</h3>
+  <div class="msg" id="pkMsg"></div>
+  <div id="pkList" style="margin-top:14px"></div>
+  <div class="foot"><button class="btn bgr" onclick="hide('m-pick')">No, Cancel</button><button class="btn binfo" id="pkYes" onclick="pickYes()">Yes, Initiate</button></div>
+</div></div>
+
+<div class="ov" id="m-hire"><div class="mod" style="width:600px">
+  <button class="x" onclick="cancelHire()"><i class="bi bi-x-lg"></i></button><h3>Add Candidate as Employee</h3>
+  <div style="padding:18px 0 6px">
+    <div class="row"><div class="fld"><span class="lbl">Name</span><input class="inp" id="hName" readonly></div><div class="fld"><span class="lbl">Joined Date*</span><input class="inp" value="2026-11-20"></div></div>
+    <div class="row"><div class="fld"><span class="lbl">Supervisor</span><select class="inp" id="hSup"><option>Abbie Campbell</option><option value="">-- None --</option></select></div><div class="fld"><span class="lbl">Work Email</span><input class="inp" id="hMail"></div></div>
+    <div class="warnl">Saving runs the existing hire, then the new <b>candidate hired</b> trigger: candidate forms move to the employee, and forms set to start on hire are started if missing.</div>
+  </div>
+  <div class="foot"><button class="btn bgh" onclick="cancelHire()">Cancel</button><button class="btn bg" onclick="doHire()">Save</button></div>
+</div></div>
+
+<div class="drawer" id="drawer"><header><b><i class="bi bi-envelope"></i> Emails sent by Forms360</b><button class="ib" onclick="toggleOut()">Close</button></header><div class="list" id="outList"></div></div>
+<div class="toast" id="toast"></div>
+<script>
+const FORMS={
+  usaf:{name:'User Security Access Form',on:['preboarding','hire'],first:'sup',firstLabel:'Supervisor completes the request',steps:'Supervisor > Approver > MIS/IT > Employee acknowledges'},
+  pma:{name:'Professional Membership Application Form',on:[],first:'self',firstLabel:'Employee applies for the membership',steps:'Employee applies > Supervisor > HR'},
+  eqr:{name:'Equipment Request Form',on:[],first:'sup',firstLabel:'Supervisor requests the equipment',steps:'Supervisor > IT > Employee acknowledges'},
+  dda:{name:'Direct Deposit Authorization Form',on:[],first:'self',firstLabel:'Employee enters bank details',steps:'Employee submits > Payroll'},
+  ecf:{name:'Emergency Contact Form',on:[],first:'self',firstLabel:'Employee adds emergency contacts',steps:'Employee submits > HR'},
+  pol:{name:'Policy Acknowledgement Form',on:[],first:'self',firstLabel:'Employee acknowledges the policies',steps:'Employee acknowledges'}
+};
+let WF='after';
+const P={
+  josh:{name:'Josh with sup',type:'employee',empId:'0113',mail:'devnith+josh@orangehrm.com',sup:'Abbie Campbell',pb:false,forms:[]},
+  keith:{name:'Keith Banks',type:'employee',empId:'EMP-51',mail:'keith.banks@example.com',sup:'Allie Reyes',pb:false,forms:[]},
+  ben:{name:'Ben Thomas',type:'employee',empId:'0109',mail:'devnith+Ben@orangehrm.com',sup:'Abbie Campbell',pb:true,cand:true,stage:'Preboarding',candMail:'devnith+Ben@orangehrm.com',forms:[{code:'usaf',st:'ns',by:'Preboarding started',date:'2026-11-14'}]},
+  minoli:{name:'Minoli Minoli',type:'candidate',cand:true,stage:'Job Offer',candMail:'madawa+Minoli@orangehrm.com',sup:'Abbie Campbell',forms:[]},
+  beta:{name:'QAF360 Beta',type:'candidate',cand:true,stage:'Application Received',candMail:'madawa+qaf360beta@orangehrm.com',sup:'Abbie Campbell',forms:[]},
+  niki:{name:'Niki Niki',type:'candidate',cand:true,stage:'Job Offer',candMail:'',sup:'',forms:[]}
+};
+const OUT=[];
+let curEmp='josh';
+const SL={ns:'Not started',na:'Needs attention',ip:'In progress',c:'Completed',x:'Cancelled'};
+const today='2026-11-14';
+function $(i){return document.getElementById(i)}
+function show(i){$(i).classList.add('show')}
+function hide(i){$(i).classList.remove('show')}
+let tt;function toast(h,m){const t=$('toast');t.innerHTML=`<b>${h}</b>${m}`;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),7000)}
+function go(v){location.hash=v}
+function openForms(p){return p.forms.filter(f=>f.st!=='c'&&f.st!=='x')}
+
+/* core: start a form with the guard and the right email */
+function startForm(key,code,by){
+  const p=P[key],f=FORMS[code];
+  if(openForms(p).some(x=>x.code===code))return {ok:false,msg:`${f.name}: already open, not created again`};
+  let st='ns';
+  if(f.first==='sup'){
+    if(p.sup){mail('sp','Forms360 - Step Pending',p.sup,`${f.name} for ${p.name} is waiting for you`)}
+    else{st='na';mail('na','Forms360 - Form Needs Attention','Form Manager (HR Admin)',`${f.name} for ${p.name}: nobody can act on the first step`)}
+  }else{
+    if(p.type==='candidate'){
+      if(p.candMail)mail('cl','Forms360 - Candidate Form Link',p.candMail,`Complete your part of ${f.name} (guest link, no login)`);
+      else{mail('na','Audit only','-',`No email on the candidate. Link for ${f.name} not sent`)}
+    }else{
+      if(p.mail)mail('sp','Forms360 - Step Pending',p.mail,`${f.name}: your step is waiting in My Forms`);
+      else mail('na','Audit only','-',`${p.name} has no work email. Their step in ${f.name} waits in My Forms`);
+    }
+  }
+  p.forms.push({code,st,by,date:today,owner:p.type});
+  return {ok:true,msg:`${f.name} started`+(st==='na'?' (Needs attention)':'')};
+}
+/* one save that starts several forms sends one email per recipient, listing the forms */
+let BATCH=null;
+function batchStart(){BATCH=[]}
+function batchFlush(){const b=BATCH||[];BATCH=null;const g={},order=[];b.forEach(m=>{const id=m.k+'|'+m.title+'|'+m.to;if(!g[id]){g[id]=[];order.push(id)}g[id].push(m)});
+  order.forEach(id=>{const ms=g[id];if(ms.length===1||ms[0].title==='Audit only')ms.forEach(m=>mail(m.k,m.title,m.to,m.body));else mail(ms[0].k,ms[0].title,ms[0].to,`${ms.length} forms in one email:<br>`+ms.map(m=>'&bull; '+m.body).join('<br>'))})}
+function mail(k,title,to,body){if(BATCH){BATCH.push({k,title,to,body});return}OUT.unshift({k,title,to,body});$('outC').textContent=OUT.length;renderOut()}
+function renderOut(){$('outList').innerHTML=OUT.length?OUT.map(m=>`<div class="mail"><span class="k k-${m.k}">${m.title}</span><br><b>${m.body}</b><div class="to">To: ${m.to}</div></div>`).join(''):'<p style="color:var(--fg-3)">No emails yet.</p>'}
+function toggleOut(){$('drawer').classList.toggle('open')}
+
+/* trigger A: preboarding started */
+function triggerA(key){
+  const res=Object.entries(FORMS).filter(([c,f])=>f.on.includes('preboarding')).map(([c])=>startForm(key,c,'Preboarding started'));
+  return res;
+}
+/* trigger B: candidate hired */
+function triggerB(key){
+  const p=P[key];const moved=p.forms.filter(f=>f.owner==='candidate');moved.forEach(f=>f.owner='employee');
+  const res=Object.entries(FORMS).filter(([c,f])=>f.on.includes('hire')).map(([c])=>openForms(p).some(x=>x.code===c)?{ok:true,msg:FORMS[c].name+': already started before hire, nothing new to start'}:startForm(key,c,'Candidate hired'));
+  return {moved:moved.length,res};
+}
+function summarize(res){return res.map(r=>(r.ok?'&#10003; ':'&#9940; ')+r.msg).join('<br>')}
+
+/* ---------- employee list ---------- */
+function empKeys(){return Object.keys(P).filter(k=>P[k].type==='employee')}
+const EARLY=['Application Received','Shortlisted','Interview'];
+function fIcon(key){
+  const p=P[key];if(EARLY.includes(p.stage))return '';const live=p.forms.filter(f=>f.st!=='x');
+  const d=live.filter(f=>f.st==='c').length;const w=live.some(f=>f.st==='na');
+  const list=live.map(f=>FORMS[f.code].name+': '+SL[f.st]).join('\n');
+  const badge=live.length?`<span class="dot">${d}/${live.length}</span>`:'';
+  let off='',tip='Initiate Forms';
+  if(p.stage==='Rejected'){off=1;tip=(list?list+'\n':'')+'Candidate rejected: forms cannot be initiated'}
+  else if(allInitiated(key)){off=1;tip='All forms are already initiated.\nPlease check the candidate\u2019s Forms360 tab for progress.'}
+  const cls=off?'off':(live.length&&d===live.length?'dn':w?'wn':'');
+  return `<span class="ic f ${cls}" data-tip="${tip}" ${off?'':`onclick="openPicker('cand','${key}')"`}><i class="bi bi-file-earmark-text em"></i>${badge}</span>`;
+}
+function renderEmps(){
+  const ks=empKeys();$('empCount').textContent=`(${ks.length}) Records Found`;
+  $('empRows').innerHTML=ks.map(k=>{const p=P[k];return `<tr><td><span class="avt" style="width:26px;height:26px"><i class="bi bi-person-fill" style="font-size:16px"></i></span></td><td>${p.empId}</td><td><span class="lnk" onclick="openProf('${k}')">${p.name}</span></td><td>Accompanist</td><td>Adelaide</td><td>${p.sup||'<span class="mut">-</span>'}</td></tr>`}).join('');
+}
+/* add employee */
+let AESEL=[];
+function openAdd(){['aPb','aFt'].forEach(i=>$(i).classList.remove('on'));AESEL=[];$('aQ').value='';aeSync();show('m-add')}
+function aeTog(id){$(id).classList.toggle('on');aeSync()}
+function aeLocked(){return []}
+function aePicked(){const l=aeLocked();return l.concat(AESEL.filter(c=>!l.includes(c)))}
+function msAdd(c){if(!AESEL.includes(c))AESEL.push(c);$('aQ').value='';aeSync();setTimeout(()=>$('aQ').focus(),0)}
+function msDel(c){AESEL=AESEL.filter(x=>x!==c);aeSync()}
+function msOpen(o){if(o){$('aMs').classList.add('focus');msDraw()}else setTimeout(()=>{$('aMs').classList.remove('focus');$('aDd').classList.add('hide')},150)}
+function msKey(e){if(e.key==='Backspace'&&!$('aQ').value&&AESEL.length){const l=aeLocked();const last=[...AESEL].reverse().find(c=>!l.includes(c));if(last)msDel(last)}
+  if(e.key==='Enter'){e.preventDefault();const first=$('aDd').querySelector('[data-c]');if(first)msAdd(first.dataset.c)}}
+function msDraw(){
+  const q=$('aQ').value.trim().toLowerCase(),pk=aePicked();
+  const opts=Object.entries(FORMS).filter(([c,f])=>!pk.includes(c)&&f.name.toLowerCase().includes(q));
+  $('aDd').innerHTML=opts.length?opts.map(([c,f])=>`<div data-c="${c}" onmousedown="event.preventDefault();msAdd('${c}')">${f.name}<small>${f.steps}</small></div>`).join(''):`<div class="none">${pk.length===Object.keys(FORMS).length?'All forms selected':'No Records Found'}</div>`;
+  $('aDd').classList.toggle('hide',!$('aMs').classList.contains('focus'));
+}
+function aeSync(){
+  const ft=$('aFt').classList.contains('on');
+  $('aBox').classList.toggle('hide',!ft);
+  const l=aeLocked(),pk=aePicked();
+  $('aChips').innerHTML=pk.map(c=>l.includes(c)?`<span class="mc lock" title="Starts with preboarding, cannot be removed">&#128274; ${FORMS[c].name}</span>`:`<span class="mc">${FORMS[c].name}<button onmousedown="event.preventDefault()" onclick="event.stopPropagation();msDel('${c}')" title="Remove"><i class="bi bi-x-circle-fill"></i></button></span>`).join('');
+  $('aQ').placeholder=pk.length?'Add another form...':'Type for hints...';
+  $('aWarn').classList.toggle('hide',!pk.length);
+  $('aWarn').innerHTML='<b>Note:</b> Email notifications are sent to the work email in the employee\u2019s <b>Contact Details</b>. Users assigned to a form step without a work email will not be emailed, but the step still appears in their <b>Forms</b> tab.';
+  if($('aMs').classList.contains('focus'))msDraw();
+}
+function saveAdd(){
+  const ft=$('aFt').classList.contains('on'),pb=$('aPb').classList.contains('on');
+  const picked=ft?aePicked():[];
+  if(ft&&!picked.length){toast('Required','Select at least one form, or turn off Initiate Forms360.');return}
+  const nm=$('aF').value+' '+$('aL').value;const key='new'+Date.now();
+  P[key]={name:nm,type:'employee',empId:'01'+(20+empKeys().length),mail:'',sup:'',pb:pb,forms:[]};
+  hide('m-add');
+  let res=[];batchStart();
+  picked.forEach(c=>res.push(startForm(key,c,'Add Employee toggle')));
+  batchFlush();
+  renderAll();
+  const tags=(pb?'<span class="trg trA">Preboarding started</span>':'')+(picked.length?'<span class="trg trM">Initiate Forms360 toggle</span>':'');
+  toast('Successfully Saved',`${tags}<br>${res.length?summarize(res):'No forms started.'}<br><span style="color:var(--fg-2)">Redirecting to the employee profile.</span>`);
+  setTimeout(()=>openProf(key),900);
+}
+
+/* ---------- profile ---------- */
+function openProf(k){curEmp=k;profTab('profile');go('prof')}
+function liveForms(p){return p.forms.filter(f=>f.st!=='x')}
+function allInitiated(k){const p=P[k];return Object.keys(FORMS).every(c=>liveForms(p).some(f=>f.code===c))}
+function renderProf(){
+  const p=P[curEmp];$('pCrumb').textContent=p.name;$('pName').textContent=p.name;$('pFull').textContent=p.name;$('pId').textContent=p.empId;$('pMail').textContent=p.mail||'Not set';$('pSup').textContent=p.sup||'None';
+  $('btnPb').classList.toggle('hide',!!p.pb||WF==='before');
+  $('wIF').classList.toggle('hide',allInitiated(curEmp));
+  const fs=p.forms;$('pfCount').textContent=`(${fs.length}) Form${fs.length===1?'':'s'} Found`;
+  $('pfRows').innerHTML=fs.length?fs.map(f=>`<tr><td><b style="color:var(--fg-1)">${FORMS[f.code].name}</b></td><td><span class="st st-${f.st}">${SL[f.st]}</span></td><td class="mut">${f.st==='x'?'-':FORMS[f.code].firstLabel}</td><td class="mut">${f.by}</td><td class="mut">${f.date}</td></tr>`).join(''):'<tr><td colspan="5" style="text-align:center;color:var(--fg-3)">No Records Found</td></tr>';
+}
+function profTab(t){$('profMain').classList.toggle('hide',t!=='profile');$('profForms').classList.toggle('hide',t!=='forms');$('pt-profile').classList.toggle('on',t==='profile');$('pt-forms').classList.toggle('on',t==='forms');renderProf()}
+function openInitPb(){show('m-pb')}
+function doInitPb(){hide('m-pb');const p=P[curEmp];p.pb=true;const res=triggerA(curEmp);renderAll();
+  toast('Successfully Saved',`<span class="trg trA">Preboarding started</span><br>${summarize(res)}`)}
+
+/* ---------- shared picker (Initiate Forms) ---------- */
+let PK=null;
+function openPicker(kind,key){
+  if(allInitiated(key)){toast('Nothing to initiate','All forms are already initiated for '+P[key].name+'.');return}
+  PK=key;const p=P[key];
+  $('pkMsg').innerHTML=`You are about to initiate Forms360 forms for this ${p.type}.`;
+  $('pkList').innerHTML=Object.entries(FORMS).map(([c,f])=>{const o=liveForms(p).find(x=>x.code===c);
+    return o?`<div class="fo lock"><input type="checkbox" checked disabled><div><div class="t">${f.name}<span class="tag tg-ok">${o.st==='c'?'Completed':'Already open'}</span></div><div class="d">Status: <span class="st st-${o.st}">${SL[o.st]}</span></div></div></div>`
+    :`<label class="fo"><input type="checkbox" data-c="${c}" onchange="pkSync()"><div><div class="t">${f.name}</div><div class="d">${f.steps}</div></div></label>`}).join('');
+  pkSync();show('m-pick');
+}
+function pkSync(){$('pkYes').disabled=![...document.querySelectorAll('#pkList input[data-c]:checked')].length}
+function pickYes(){
+  const cs=[...document.querySelectorAll('#pkList input[data-c]:checked')].map(x=>x.dataset.c);hide('m-pick');
+  batchStart();const res=cs.map(c=>startForm(PK,c,'Initiate Forms'));batchFlush();renderAll();
+  toast('Successfully Saved',`<span class="trg trM">Initiate Forms</span><br>${summarize(res)}`);
+}
+
+/* ---------- candidates ---------- */
+function stages(){return WF==='after'?['Application Received','Shortlisted','Interview','Job Offer','Hired','Preboarding','Rejected']:['Application Received','Shortlisted','Interview','Job Offer','Preboarding','Hired','Rejected']}
+function candKeys(){return Object.keys(P).filter(k=>P[k].cand)}
+const PBSVG=`<svg width="16" height="16" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"><path style="fill:currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M59.5644 84.8452C48.2982 84.8452 39.9765 85.2354 34.2222 85.6771L34.2071 85.6783C30.3586 85.967 27.2022 88.2129 25.9439 91.642C21.0926 104.965 17.7398 118.699 15.9363 132.633C15.6728 134.727 17.3638 136.691 19.9923 136.843C21.563 136.931 24.3758 137.012 27.2707 137.096C29.6458 137.165 32.0761 137.236 33.9211 137.313C37.9226 137.48 45.1625 140.317 45.4823 143.934L48.7566 180.963C48.9524 183.177 48.6978 184.644 50.6352 184.825C52.1139 184.96 52.2155 185.081 53.1587 185.185C55.488 185.44 55.851 185.59 59.5419 185.591C64.6557 185.563 69.7646 185.309 74.8494 184.827C79.2178 184.413 83.1293 187.286 83.586 191.244C84.0427 195.201 80.8717 198.745 76.5034 199.158C70.8906 199.69 65.2525 199.97 59.6101 200L59.5644 200C54.8479 200 52.4808 199.74 49.838 199.45C48.9642 199.354 48.0602 199.255 47.0312 199.161L47.0226 199.16C36.9519 198.228 33.6702 190.8 32.902 182.113L30.1934 151.482C27.3097 151.395 20.4332 151.305 19.0012 151.224L18.993 151.224C7.58173 150.571 -1.20971 141.548 0.136328 130.977L0.138007 130.964C2.06625 116.06 5.6523 101.371 10.8416 87.121L10.8459 87.1092C14.0674 78.3135 22.5563 72.0967 32.8859 71.3186C39.1321 70.8393 47.9023 70.4357 59.5644 70.4357C71.2244 70.4357 79.998 70.8395 86.2363 71.3145C96.5574 72.0917 105.053 78.3083 108.274 87.1056L108.277 87.1131C110.76 93.9191 112.875 100.83 114.616 107.822C115.583 111.704 112.893 115.56 108.608 116.435C104.324 117.311 100.067 114.874 99.1006 110.993C97.4735 104.458 95.4965 97.9986 93.1761 91.6382C91.9184 88.2096 88.7576 85.9627 84.9166 85.6742L84.9077 85.6735C79.1538 85.2354 70.8256 84.8452 59.5644 84.8452Z"/><path style="fill:currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M56.7335 11.5104C51.2867 11.5104 46.0629 13.4707 42.2113 16.9599C38.3599 20.4492 35.3961 26.6311 35.3961 31.5657C35.3961 36.5003 38.3598 41.9575 42.2113 45.4468M42.2113 45.4468C46.0629 48.936 51.2867 50.8963 56.7335 50.8963C62.1803 50.8963 69.0038 48.2114 72.8555 44.722C76.707 41.2328 78.8707 36.5004 78.8707 31.5657C78.8707 26.631 76.707 21.8986 72.8556 18.4095C69.0039 14.9201 62.1803 11.5104 56.7335 11.5104M32.5645 8.22045C39.3989 2.02887 47.0683 0 56.7335 0C66.3989 0 74.0679 2.02893 80.9023 8.22041C87.7369 14.4121 91.5761 22.8097 91.5761 31.5657C91.5761 40.3218 87.7369 48.7194 80.9023 54.911C74.0679 61.1025 66.3989 63.1315 56.7335 63.1315C47.0683 63.1315 39.3989 61.1026 32.5645 54.911C25.7302 48.7195 21.8907 40.3219 21.8907 31.5657C21.8907 22.8096 25.7302 14.412 32.5645 8.22045Z"/><path style="fill:currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M143.833 136.466C126.88 136.466 115.836 137.218 109.089 137.958L109.085 137.959C106.644 138.226 106.776 139.851 106.5 142.452C106.017 147.087 105.572 153.402 105.572 161.028L105.572 161.042C105.559 167.241 105.869 173.437 106.501 179.61C106.779 182.208 106.645 183.831 109.084 184.097L109.086 184.097C115.832 184.835 126.887 185.591 143.833 185.591C160.787 185.591 171.829 184.839 178.577 184.098L178.583 184.097C181.023 183.831 182.89 182.206 183.166 179.606C183.649 174.97 184.095 168.655 184.095 161.028C184.095 153.402 183.649 147.087 183.166 142.451C182.89 139.851 181.023 138.226 178.582 137.959L178.577 137.958C171.834 137.218 160.783 136.466 143.833 136.466ZM107.181 123.653C114.687 122.83 126.383 122.057 143.833 122.057C161.282 122.057 172.987 122.83 180.49 123.654C190.774 124.779 198.055 132.133 199 141.084L199.001 141.093C199.525 146.122 200 152.894 200 161.028C200 169.163 199.525 175.935 199.001 180.964L199 180.973C198.055 189.923 190.774 197.278 180.49 198.403C172.983 199.227 161.287 200 143.833 200C126.383 200 114.679 199.223 107.182 198.403M107.177 123.654C96.8928 124.779 91.6112 132.133 90.6666 141.084L90.6657 141.093C90.1417 146.12 89.6668 152.89 89.6666 161.022C89.6531 167.676 89.9862 174.327 90.6645 180.952L90.6666 180.973C91.6112 189.925 96.894 197.28 107.18 198.403"/><path style="fill:currentColor" d="M174.96 126.338C174.96 122.79 174.189 119.277 172.69 115.999C171.191 112.721 168.994 109.743 166.225 107.234C163.456 104.725 160.168 102.735 156.55 101.377C152.932 100.02 149.054 99.3207 145.137 99.3207C141.221 99.3207 137.343 100.02 133.725 101.377C130.107 102.735 126.819 104.725 124.05 107.234C121.28 109.743 119.084 112.721 117.585 115.999C116.086 119.277 115.315 122.79 115.315 126.338H128.749C128.749 124.389 129.173 122.458 129.996 120.657C130.82 118.855 132.027 117.218 133.549 115.84C135.071 114.461 136.877 113.367 138.866 112.621C140.854 111.875 142.985 111.491 145.137 111.491C147.29 111.491 149.421 111.875 151.409 112.621C153.397 113.367 155.204 114.461 156.726 115.84C158.248 117.218 159.455 118.855 160.279 120.657C161.102 122.458 161.526 124.389 161.526 126.338H174.96Z"/></svg>`;
+const SCOL={'All Candidates':['var(--oxd-gray-lighten-2)','var(--fg-1)'],'Application Received':['color-mix(in srgb,var(--oxd-feedback-info) 12%,white)','var(--oxd-feedback-info)'],'Shortlisted':['color-mix(in srgb,#b44be1 12%,white)','#b44be1'],'Interview':['color-mix(in srgb,var(--oxd-secondary-four) 16%,white)','var(--oxd-secondary-four)'],'Job Offer':['color-mix(in srgb,#1fc7c7 14%,white)','#12a5a5'],'Preboarding':['color-mix(in srgb,#5b4fe0 12%,white)','#5b4fe0'],'Hired':['color-mix(in srgb,var(--oxd-primary-one) 14%,white)','var(--oxd-primary-one)'],'Rejected':['color-mix(in srgb,var(--oxd-feedback-danger) 10%,white)','var(--oxd-feedback-danger)']};
+function renderCands(){
+  const ks=candKeys();$('candCount').textContent=`(${ks.length}) Candidates Found`;
+  $('candRows').innerHTML=ks.map(k=>{const p=P[k];
+    const locked=p.stage==='Rejected'||(p.stage==='Preboarding'&&WF==='after')||(p.stage==='Hired'&&WF==='before');
+    const st=locked?`<span class="chip">${p.stage}</span>`:`<select class="ssel" onchange="stageChange('${k}',this.value,this)">${stages().map(s=>`<option ${s===p.stage?'selected':''}>${s}</option>`).join('')}</select>`;
+    const pbi=p.pb&&p.stage!=='Rejected'?`<span class="ic" data-tip="View Preboarding Stage Progress">${PBSVG}</span>`:'';
+    return `<tr><td><div class="ncell"><span class="rad"></span><span class="avt" style="width:34px;height:34px"><i class="bi bi-person-fill" style="font-size:20px"></i></span><span class="cname"><b>${p.name}</b><span class="vac">Vacancies 1</span></span></div></td><td class="mut">${p.candMail||'<i style="color:#d98200">No email</i>'}</td><td class="mut">2026-11-13</td><td>${st}</td><td><div class="acts">${pbi}${fIcon(k)}<span class="ic"><i class="bi bi-three-dots-vertical"></i></span></div></td></tr>`}).join('');
+  const c=s=>ks.filter(k=>P[k].stage===s).length;
+  $('flt').innerHTML=[['All Candidates',ks.length],['Application Received',c('Application Received')],['Shortlisted',c('Shortlisted')],['Interview',c('Interview')],['Job Offer',c('Job Offer')],['Preboarding',c('Preboarding')],['Hired',c('Hired')],['Rejected',c('Rejected')]].map((x,i)=>`<div class="${i?'':'on'}"><span>${x[0]}</span><em style="background:${SCOL[x[0]][0]};color:${SCOL[x[0]][1]}">${x[1]}</em></div>`).join('');
+}
+let pendingHire=null;
+function stageChange(k,v,sel){
+  const p=P[k];
+  if(v==='Hired'&&p.type==='candidate'){pendingHire={k,prev:p.stage};$('hName').value=p.name;$('hMail').value=p.candMail?p.candMail.replace('madawa+','').toLowerCase():'';$('hSup').value=p.sup||'';show('m-hire');return}
+  if(v==='Preboarding'){
+    p.stage='Preboarding';p.pb=true;const res=triggerA(k);renderAll();
+    toast('Successfully Updated',`<span class="trg trA">Preboarding started</span> ${p.name} is ${p.type==='candidate'?'still a <strong>candidate</strong>: forms are created on the candidate':'an <strong>employee</strong>: forms are created on the employee'}.<br>${summarize(res)}`);return}
+  if(v==='Rejected'){
+    p.stage='Rejected';const open=openForms(p);open.forEach(f=>{const had=f.st!=='na'&&!(FORMS[f.code].first==='sup'&&!p.sup);f.st='x';if(had)mail('wd','Forms360 - Form Withdrawn',FORMS[f.code].first==='sup'?p.sup:(p.candMail||p.name),`${FORMS[f.code].name} for ${p.name} was cancelled`);else mail('na','Audit only','-',`${FORMS[f.code].name} for ${p.name} was cancelled. No actor on the active step, no email sent`)});renderAll();
+    toast('Successfully Updated',`${p.name} rejected.`+(open.length?`<br>&#9940; ${open.length} open form(s) cancelled. Step owners get the Form Withdrawn email.`:''));return}
+  p.stage=v;renderAll();
+}
+function cancelHire(){hide('m-hire');pendingHire=null;renderAll()}
+function doHire(){
+  const k=pendingHire.k,p=P[k];hide('m-hire');
+  p.type='employee';p.stage='Hired';p.empId='01'+(30+empKeys().length);p.mail=$('hMail').value;p.sup=$('hSup').value;
+  const r=triggerB(k);pendingHire=null;renderAll();
+  toast('Successfully Saved',`<span class="trg trB">Candidate hired</span> ${p.name} is now employee ${p.empId}.<br>${r.moved?`&#10140; ${r.moved} candidate form(s) moved to the employee<br>`:''}${summarize(r.res)}`);
+}
+
+/* ---------- story ---------- */
+const STORY=[
+ {v:'emps',t:'This is the <em>Employee List</em>. Click <em>+</em> to add an employee. In <em>Add Employee</em>, turn on <em>Initiate Forms360 upon Adding Employee</em> and pick one or more forms from the <em>Forms</em> field. <em>Initiate Preboarding</em> is independent: turning it on does not select or require any form. Save, then open <em>Emails sent</em> (top right).'},
+ {v:'prof',t:'Open <em>Josh with sup</em>. <em>Initiate Preboarding</em> works as today and starts the preboarding forms. The new <em>Initiate Forms</em> button sends any other form, with the same confirmation style. Forms already open are locked.'},
+ {v:'cands',t:'<em>Recruitment</em>. From <em>Job Offer</em> onward, each row has a <em>Forms360</em> button that opens <em>Initiate Forms</em>; earlier stages have no button. In Preboarding, the preboarding stage icon shows beside it. Move <em>Minoli Minoli</em> to <em>Hired</em>: the hire trigger starts the forms set to start on hire. Then move her to <em>Preboarding</em>: forms already started are not created again. Move <em>QAF360 Beta</em> to Preboarding, then <em>Rejected</em>: her open forms are cancelled and step owners get the <em>Form Withdrawn</em> email.'}
+];
+let si=0;
+function storyGo(d){si=Math.max(0,Math.min(STORY.length-1,si+d));const s=STORY[si];$('sNum').textContent=`${si+1}/${STORY.length}`;$('sTxt').innerHTML=s.t;if(s.v==='prof')curEmp='josh';go(s.v)}
+
+/* ---------- routing ---------- */
+const VIEWS={emps:'v-emps',prof:'v-prof',cands:'v-cands',};
+function renderAll(){renderEmps();renderProf();renderCands()}
+function route(){let v=location.hash.slice(1);if(!VIEWS[v])v='emps';document.querySelectorAll('.ov.show').forEach(o=>{if(o.id!=='m-hire')o.classList.remove('show')});
+  document.querySelectorAll('.view').forEach(s=>s.classList.toggle('hide',s.id!==VIEWS[v]));renderAll();window.scrollTo(0,0)}
+window.addEventListener('hashchange',route);
+renderOut();renderAll();storyGo(0);route();
+</script>
+</body>
+</html>
